@@ -108,7 +108,7 @@ function draw() {
       jumpSound.play();
     }
     
-    trex.velocityY = trex.velocityY + 0.8
+    fish.velocityY = fish.velocityY + 0.8
   
     //spawn the clouds
     spawnClouds();
