@@ -3,6 +3,7 @@ var END = 0;
 var gameState = PLAY;
 
 var trex, trex_running, trex_collided;
+var fish,fishI;
 var ground, invisibleGround, groundImage;
 
 var cloudsGroup, cloudImage;
@@ -16,7 +17,7 @@ var jumpSound , checkPointSound, dieSound;
 
 function preload(){
   trex_running = loadImage("fishrani.jpg");
-  
+  fishI=loadImage("fishrani.jpg");
 //  trex_collided = loadAnimation("fishraja.jpg");
   
   groundImage = loadImage("ground2.png");
@@ -63,9 +64,9 @@ function setup() {
   
   trex = createSprite(50,150,20,50);
   trex.addImage("running", trex_running);
-  trex.collide(invisibleGround);
+  
   trex.scale=0.02;
-  trex.visible="true";
+  trex.visible="false";
   //create Obstacle and Cloud Groups
   obstaclesGroup = createGroup();
   cloudsGroup = createGroup();
@@ -73,7 +74,8 @@ function setup() {
   console.log("Hello" + 5);
   
   trex.setCollider("rectangle",0,0,60,300);
-  trex.debug=true;
+  fish = createSprite(50,150,20,50);
+  fish.addImage("op", fishI);
   
   score = 0;
   
@@ -102,7 +104,7 @@ function draw() {
     
     
     if(keyDown("space")&& trex.y >= 150) {
-        trex.velocityY = -12;
+        fish.velocityY = -12;
       jumpSound.play();
     }
     
@@ -114,7 +116,7 @@ function draw() {
     //spawn obstacles on the ground
     spawnObstacles();
     
-    if(obstaclesGroup.isTouching(trex)){
+    if(obstaclesGroup.isTouching(fish)){
         gameState = END;
       dieSound.play();
       
@@ -130,10 +132,10 @@ function draw() {
       restart.visible = true;
      
       ground.velocityX = 0;
-      trex.velocityY = 0
+      fish.velocityY = 0
      
       //change the trex animation
-      trex.changeAnimation("collided", trex_collided);
+      
      
       //set lifetime of the game objects so that they are never destroyed
     obstaclesGroup.setLifetimeEach(-1);
