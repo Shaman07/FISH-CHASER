@@ -76,7 +76,7 @@ function setup() {
   trex.setCollider("rectangle",0,0,60,300);
   fish = createSprite(50,150,20,50);
   fish.addImage("op", fishI);
-  
+  fish.scale=0.05;
   score = 0;
   
 }
