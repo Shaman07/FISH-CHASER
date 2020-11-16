@@ -22,14 +22,14 @@ function preload(){
   
   groundImage = loadImage("ground2.png");
   
-  cloudImage = loadImage("cloudPOM.jpg");
+  cloudImage = loadImage("cloudPOM-removebg-preview.jpg");
   
-  obstacle1 = loadImage("pombey3.jpg");
-  obstacle2 = loadImage("pombey.jpg");
-  obstacle3 = loadImage("pombey3.jpg");
-  obstacle4 = loadImage("pombey.jpg");
-  obstacle5 = loadImage("pombey3.jpg");
-  obstacle6 = loadImage("pombey.jpg");
+  obstacle1 = loadImage("pombey3-removebg-preview.jpg");
+  obstacle2 = loadImage("pombey-removebg-preview.jpg");
+  obstacle3 = loadImage("pombey3-removebg-preview.jpg");
+  obstacle4 = loadImage("pombey-removebg-preview.jpg");
+  obstacle5 = loadImage("pombey3-removebg-preview.jpg");
+  obstacle6 = loadImage("pombey-removebg-preview.jpg");
   
    restartImg = loadImage("restart.png")
   gameOverImg = loadImage("gameOver.png")
@@ -215,7 +215,7 @@ function reset(){
   restart.visible=false;
   obstaclesGroup.destroyEach();
    cloudsGroup.destroyEach();
-  trex.changeAnimation("running",trex_running);
+  
    gameState=PLAY;
    score = 0;
 }
